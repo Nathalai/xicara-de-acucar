@@ -1,0 +1,22 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 32px;
+  font-size: 1.5rem;
+}
+
+section p {
+  padding: 0 24px;
+  text-align: center;
+}
+
+section p a {
+  text-decoration: none;
+  color: #ff9633;
+}
+
+section p a:hover {
+  color: #ff5233;
+}
