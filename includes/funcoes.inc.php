@@ -94,15 +94,15 @@ function entrar($connection, $usuarioemail, $senha) {
     }
 }
 
-function disponibilizarItem($connection, $item, $descricao) {
-    $sql = "INSERT INTO itens (itemNome, itemDescricao) VALUES (?, ?);";
+function disponibilizarItem($connection, $item, $descricao, $usuarioId) {
+    $sql = "INSERT INTO itens (itemNome, itemDescricao, usuarioId) VALUES (?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../disponibilizar.php?error=stmtfalhou");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $item, $descricao);
+    mysqli_stmt_bind_param($stmt, "sss", $item, $descricao, $usuarioId);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../disponibilizar.php?error=none");

@@ -4,12 +4,12 @@ if (isset($_POST["disponibilizarBtn"])) {
 
     $item = $_POST["item"];
     $descricao = $_POST["descricao"];
-    //$donoItem = $_SESSION["usuarioNome"];
+    $usuarioId = $_POST["usuarioId"];
 
     require_once "dbhandler.inc.php";
     require_once "funcoes.inc.php";
    
-    disponibilizarItem($connection, $item, $descricao);
+    disponibilizarItem($connection, $item, $descricao, $usuarioId);
 
 } else {
     header("location: ../tela-inicial.php");

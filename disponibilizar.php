@@ -44,7 +44,10 @@
         <div class="mb-3">
           <label class="form-label">Descrição</label>
           <input type="text" name="descricao" class="form-control" placeholder="Faça uma breve descrição do item" maxlength="1000">
-        </div>        
+        </div>
+        <?php
+        echo '<input type="hidden" name="usuarioId" value="' . $_SESSION['usuarioId'] . '">'
+        ?>
         <div class="submit">
           <button type="submit" name="disponibilizarBtn" class="submitBt">DISPONIBILIZAR</button>
         </div>
