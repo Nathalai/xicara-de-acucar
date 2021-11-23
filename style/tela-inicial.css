@@ -20,3 +20,109 @@ section p a {
 section p a:hover {
   color: #ff5233;
 }
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand p {
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
+
+#navSecundaria {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 30px !important;
+}
+
+body a {
+  text-decoration: none;
+  color: #ff9633;
+}
+
+body a:hover {
+  color: #ff5233;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+h4 {
+  color: rgb(49, 163, 87);
+  text-align: center;
+  margin-top: 32px !important;
+}
+
+h5 {
+  color: rgb(255, 8, 0);
+  text-align: center;
+  margin-top: 32px !important;
+}
+
+section.formulario {
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+}
+
+section form {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  margin: 16px 0 16px;
+}
+
+form input {
+  font-size: 0.8rem !important;
+  height: 3rem;
+  border-radius: 8px !important;
+}
+
+form .submit {
+  text-align: center;
+}
+
+form .submitBt {
+  font-size: 1rem !important;
+  font-weight: 700;
+  text-align: center;
+  height: 4.2rem;
+  width: 10rem;
+  color: #fff;
+  border: none;
+  border-radius: 8px !important;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+form .submitBt:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+form .submitBt.tipo1 {
+  background-color: #ff9633;
+}
+
+form .submitBt.tipo1:hover {
+  background-color: hsl(22, 100%, 60%);
+}
+
+form .submitBt.tipo2 {
+  background-color: #ff5233;
+}
+
+form .submitBt.tipo2:hover {
+  background-color: rgb(255, 51, 51);
+}
