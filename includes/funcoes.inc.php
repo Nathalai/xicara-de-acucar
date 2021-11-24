@@ -109,4 +109,21 @@ function disponibilizarItem($connection, $item, $descricao, $usuarioId) {
     exit();
 }
 
+function buscarDisponibilizados($connection, $usuarioId) {    
+    $sql = "SELECT * FROM itens WHERE usuarioId = $usuarioId;";
+    $result = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+      $itens = array();
+        while($row = mysqli_fetch_assoc($result)) {
+            $item = array('ID' => $row["itemId"], 'Nome'=> $row['itemNome'], 'Descrição'=> $row['itemDescricao'], 'Disponibilidade'=> $row['disponibilidade'], 'Emprestado para:'=> $row['emprestadoPara'], 'Contato'=> $row['contato']);
+            array_push($itens, $item);
+        }
+
+        return $itens;
+    }
+
+    mysqli_close($connection);
+}
+
 ?>

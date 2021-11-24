@@ -28,7 +28,7 @@
           echo "<h5>Algo deu errado, tente novamente!</h5>";
         }
         else if ($_GET["error"] == "none") {
-          echo "<h4>O item foi cadastrado(a) com sucesso!</h4>";
+          echo "<h4>O item foi disponibilizado com sucesso!</h4>";
         }
       }
     ?>
@@ -43,7 +43,7 @@
         </div>
         <div class="mb-3">
           <label class="form-label">Descrição</label>
-          <input type="text" name="descricao" class="form-control" placeholder="Faça uma breve descrição do item" maxlength="1000">
+          <input type="text" name="descricao" class="form-control" placeholder="Faça uma breve descrição do item" maxlength="300">
         </div>
         <?php
         echo '<input type="hidden" name="usuarioId" value="' . $_SESSION['usuarioId'] . '">'

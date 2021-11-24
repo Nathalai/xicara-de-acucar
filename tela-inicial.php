@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Entrar</title>
+        <title>Página Inicial</title>
         <link rel="shortcut icon" href="img/sugar.png"/>
         <link href="style/tela-inicial.css" rel="stylesheet"/>
         <link
@@ -27,10 +27,10 @@
           if (isset($_SESSION["usuarioUsername"])) {
             echo  '<p>Olá ' . $_SESSION["usuarioNome"] . '!</p>';
             echo  '<div>
-                    <form class="botoesForm" action="diponibilizar.php" method="post">
+                    <form class="botoesForm" action="disponibilizar.php" method="post">
                       <button type="submit" name="botaoDiponibilizar" class="submitBt tipo1">Disponibilizar novo item</button>                    
                     </form>
-                    <form class="botoesForm" action="diponibilizados.php" method="post">
+                    <form class="botoesForm" action="disponibilizados.php" method="post">
                       <button type="submit" name="botaoDiponibilizados" class="submitBt tipo1">Itens que você disponibilizou</button>                    
                     </form>
                   </div>

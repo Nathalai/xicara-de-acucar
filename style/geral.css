@@ -83,11 +83,25 @@ form .submitBt:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-body .col {
+body table {
+  display: flex;
+  justify-content: center;
+}
+
+body .col,
+body table th,
+body table td {
   border: 1px solid rgba(39, 41, 43, 0.1);
 }
 
-body div.container .row:first-child {
+body table th,
+body table td {
+  padding: 0 8px;
+  max-width: 250px;
+}
+
+body div.container .row:first-child,
+body table tbody {
   margin-top: 24px;
 }
 

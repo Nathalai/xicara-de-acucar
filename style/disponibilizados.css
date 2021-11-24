@@ -1,0 +1,28 @@
+section.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 32px;
+}
+
+section.container .card {
+  width: 18rem;
+  margin-top: 16px;
+}
+
+section.container .card-title {
+  color: black;
+  margin-top: 8px !important;
+}
+
+section.container .btn {
+  padding: 0.275rem 0.55rem;
+  font-size: 0.7rem;
+}
+
+section.container .btn-primary {
+  margin-left: 200px;
+  background-color: rgb(255, 51, 51);
+  border-color: rgb(255, 51, 51);
+}

@@ -28,24 +28,23 @@
       echo '<h3>Perfil</h3>        
         <div class="container tabela">
           <div class="row">
-            <div class="col col col-lg-2">Nome</div>
+            <div class="col col col-lg-2"><b>Nome</b></div>
             <div class="col">' . $_SESSION["usuarioNome"] . '</div>
-            <div class="col col col-lg-2"></div>
           </div>
           <div class="row">
-            <div class="col col-lg-2">Usuário</div>
+            <div class="col col-lg-2"><b>Usuário</b></div>
             <div class="col">' . $_SESSION["usuarioUsername"] . '</div>
-            <div class="col col col-lg-2"></div>
+            <div class="col col col-lg-2"><a href=#>Alterar</a></div>
           </div>
           <div class="row">
-            <div class="col col-lg-2">Email</div>
+            <div class="col col-lg-2"><b>Email</b></div>
             <div class="col">' . $_SESSION["usuarioEmail"] . '</div>
-            <div class="col col col-lg-2"></div>
+            <div class="col col col-lg-2"><a href=#>Alterar</a></div>
           </div>
           <div class="row">
-            <div class="col col-lg-2">Senha</div>
+            <div class="col col-lg-2"><b>Senha</b></div>
             <div class="col">******</div>
-            <div class="col col col-lg-2"></div>
+            <div class="col col col-lg-2"><a href=#>Alterar</a></div>
           </div>
         </div>';
       } else {
