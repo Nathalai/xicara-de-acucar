@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Itens que você disponibilizou</title>
+    <title>Pegar item emprestado</title>
     <link rel="shortcut icon" href="img/sugar.png"/>
     <link href="style/geral.css" rel="stylesheet"/>
     <link href="style/disponibilizados.css" rel="stylesheet"/>
@@ -21,13 +21,13 @@
   <body>
     <?php
       include_once "header.php";
-      include_once "./includes/disponibilizados.inc.php";
+      include_once "./includes/pegar-emprestado.inc.php";
     ?>
 
-    <h3>Disponibilizados</h3>
+    <h3>Pegar Item Emprestado</h3>
 
     <?php      
-      function exibirDisponibilizados($array){
+      function exibirDisponiveis($array){
           $html = '<table>';
           $html .= '<tr>';
           foreach($array[0] as $key=>$value){
@@ -39,18 +39,18 @@
               foreach($value as $key2=>$value2){
                 $html .= '<td>' . htmlspecialchars($value2) . '</td>';                
               }
-              $html .= '<td><a href="./excluir-item.php?item-id='.$value["ID"].'">Excluir</a></td>';
+              $html .= '<td><a href="./pegar-emprestado.php?item-id='.$value["ID"].'">Pegar emprestado</a></td>';
               $html .= '</tr>';
           }
           $html .= '</table>';
           return $html;
       }
       
-      $itens = loadItems();
+      $itens = buscarDisponiveis();
 
-      $exibirDisponibilizados = exibirDisponibilizados($itens);
+      $exibirDisponiveis = exibirDisponiveis($itens);
 
-      echo $exibirDisponibilizados;      
+      echo $exibirDisponiveis;
     ?>    
 
   </body>

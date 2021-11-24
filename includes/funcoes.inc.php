@@ -126,4 +126,34 @@ function buscarDisponibilizados($connection, $usuarioId) {
     mysqli_close($connection);
 }
 
+function excluirItemDB($connection, $itemId) {
+    $sql = "DELETE FROM itens WHERE itemId = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../disponibilizados.php?error=stmtfalhou");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $itemId);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
+}
+
+function buscarDisponiveisDB($connection, $usuarioId) {    
+    $sql = "SELECT i.itemId, i.itemNome, i.itemDescricao, u.usuariosNome FROM itens AS i INNER JOIN usuarios AS u ON u.usuariosId = i.usuarioId WHERE i.usuarioId != $usuarioId AND i.disponibilidade = 'Disponível';";
+    $result = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+      $itens = array();
+        while($row = mysqli_fetch_assoc($result)) {
+            $item = array('ID' => $row["itemId"], 'Nome'=> $row['itemNome'], 'Descrição'=> $row['itemDescricao'], 'Quem está emprestando:'=> $row['usuariosNome']);
+            array_push($itens, $item);
+        }
+
+        return $itens;
+    }
+
+    mysqli_close($connection);
+}
+
 ?>
