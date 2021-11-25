@@ -38,7 +38,7 @@
                     <form class="botoesForm" action="pegar-emprestado.php" method="post">
                       <button type="submit" name="botaoEmprestar" class="submitBt tipo2">Pegar novo item emprestado</button>                    
                     </form>
-                    <form class="botoesForm" action="emprestados.php" method="post">
+                    <form class="botoesForm" action="pegou-emprestado.php" method="post">
                       <button type="submit" name="botaoEmprestados" class="submitBt tipo2">Itens que você pegou emprestado</button>                   
                     </form>
                   </div>';
