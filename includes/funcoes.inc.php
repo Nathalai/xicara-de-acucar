@@ -110,7 +110,7 @@ function disponibilizarItem($connection, $item, $descricao, $usuarioId) {
 }
 
 function buscarDisponibilizados($connection, $usuarioId) {    
-    $sql = "SELECT * FROM itens WHERE usuarioId = $usuarioId;";
+    $sql = "SELECT i.itemId, i.itemNome, i.itemDescricao, i.disponibilidade, u.usuariosNome AS emprestadoPara, u.usuariosEmail AS contato FROM itens AS i LEFT JOIN usuarios AS u ON i.emprestadoPara = u.usuariosId WHERE i.usuarioId = $usuarioId;";
     $result = mysqli_query($connection, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -154,6 +154,19 @@ function buscarDisponiveisDB($connection, $usuarioId) {
     }
 
     mysqli_close($connection);
+}
+
+function pegarItemDB($connection, $usuarioId, $itemId) {    
+    $sql = "UPDATE itens SET disponibilidade = 'Indisponivel', emprestadoPara = ? WHERE itemId = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../disponibilizados.php?error=stmtfalhou");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ss", $usuarioId, $itemId);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
 }
 
 ?>

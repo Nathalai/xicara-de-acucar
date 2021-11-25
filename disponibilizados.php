@@ -24,6 +24,14 @@
       include_once "./includes/disponibilizados.inc.php";
     ?>
 
+    <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"] == "none") {
+          echo "<h4>O item foi excluído!</h4>";
+        }
+      }
+    ?>
+
     <h3>Disponibilizados</h3>
 
     <?php      
@@ -33,6 +41,7 @@
           foreach($array[0] as $key=>$value){
                 $html .= '<th>' . htmlspecialchars($key) . '</th>';
               }
+              $html .= '<th></th>';
           $html .= '</tr>';
           foreach( $array as $key=>$value){
               $html .= '<tr>';

@@ -24,6 +24,14 @@
       include_once "./includes/pegar-emprestado.inc.php";
     ?>
 
+    <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"] == "none") {
+          echo "<h4>Você pegou um item emprestado!</h4>";
+        }
+      }
+    ?>
+
     <h3>Pegar Item Emprestado</h3>
 
     <?php      
@@ -33,13 +41,14 @@
           foreach($array[0] as $key=>$value){
                 $html .= '<th>' . htmlspecialchars($key) . '</th>';
               }
+              $html .= '<th></th>';
           $html .= '</tr>';
           foreach( $array as $key=>$value){
               $html .= '<tr>';
               foreach($value as $key2=>$value2){
                 $html .= '<td>' . htmlspecialchars($value2) . '</td>';                
               }
-              $html .= '<td><a href="./pegar-emprestado.php?item-id='.$value["ID"].'">Pegar emprestado</a></td>';
+              $html .= '<td><a href="./pegar-item.php?item-id=' . $value["ID"] . '&usuario-id=' . $_SESSION["usuarioId"] . '">Pegar emprestado</a></td>';
               $html .= '</tr>';
           }
           $html .= '</table>';
