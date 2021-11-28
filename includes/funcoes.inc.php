@@ -199,4 +199,69 @@ function devolverItemDB($connection, $itemId) {
     mysqli_stmt_close($stmt);
 }
 
+function alterarDados($connection, $usuarioId, $novoUsername, $novoEmail) {    
+    $sql = "UPDATE usuarios SET usuariosUsername = ?, usuariosEmail = ? WHERE usuariosId = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../perfil.php?error=stmtfalhou");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sss", $novoUsername, $novoEmail,  $usuarioId);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    session_start();
+    $_SESSION["usuarioUsername"] = $novoUsername;
+    $_SESSION["usuarioEmail"] = $novoEmail;
+    header("location: ../perfil.php?error=none");
+    exit();
+}
+
+function usuarioExisteAlterarDados($connection, $novoUsername, $novoEmail, $usuarioId) {
+    $sql = "SELECT * FROM usuarios WHERE usuariosUsername = ? OR usuariosEmail = ? AND usuariosId != ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../perfil.php?error=stmtfalhou");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sss", $novoUsername, $novoEmail, $usuarioId);
+    mysqli_stmt_execute($stmt);
+
+    $dadosResultantes = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($dadosResultantes)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
+
+function alterarSenha($connection, $usuarioId, $novaSenha) {    
+    $sql = "UPDATE usuarios SET usuariosSenha = ? WHERE usuariosId = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../perfil.php?error=stmtfalhou");
+        exit();
+    }
+
+    $hashedSenha = password_hash($novaSenha, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "ss", $hashedSenha, $usuarioId);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    /* session_start();
+    $_SESSION["usuarioUsername"] = $novoUsername;
+    $_SESSION["usuarioEmail"] = $novoEmail; */
+    header("location: ../perfil.php?error=none1");
+    exit();
+}
+
 ?>
