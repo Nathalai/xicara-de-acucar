@@ -240,8 +240,6 @@ function usuarioExisteAlterarDados($connection, $novoUsername, $novoEmail, $usua
     mysqli_stmt_close($stmt);
 }
 
-
-
 function alterarSenha($connection, $usuarioId, $novaSenha) {    
     $sql = "UPDATE usuarios SET usuariosSenha = ? WHERE usuariosId = ?;";
     $stmt = mysqli_stmt_init($connection);

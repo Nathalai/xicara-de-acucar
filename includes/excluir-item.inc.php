@@ -8,7 +8,7 @@ function excluirItem() {
 
         excluirItemDB($connection, $itemId);
 
-        header("location: ./disponibilizados.php?error=none);
+        header("location: ./disponibilizados.php?error=none");
         exit();
     } else {
         header("location: ./disponibilizados.php?error=sem-item-id");
